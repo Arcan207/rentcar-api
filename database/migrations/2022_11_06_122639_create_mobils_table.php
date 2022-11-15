@@ -15,13 +15,17 @@ return new class extends Migration
     {
         Schema::create('mobils', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("transaksi_id");
+            $table->bigInteger("transaksi_id")->nullable();
+            $table->string("pemilik");
+            $table->string("kota");
+            $table->text("gambar");
             $table->string("merk");
-            $table->string("plat");
-            $table->string("warna");
-            $table->string("tahun");
-            $table->string("status");
+            $table->string("plat")->nullable();
+            $table->string("warna")->nullable();
+            $table->string("tahun")->nullable();
+            $table->string("status")->default(true);
             $table->integer("harga");
+            $table->string("transmisi");
             $table->timestamps();
         });
     }
